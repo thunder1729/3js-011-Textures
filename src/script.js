@@ -2,6 +2,9 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { Color } from 'three'
+import * as dat from 'dat.gui'
+
+
 
 /**
  * Texture
@@ -23,7 +26,7 @@ loadingManager.onProgress = () =>
 }
 
 const textureLoader = new THREE.TextureLoader()
-const texture = textureLoader.load('/textures/door/mars.jpg')  //Change texture here
+const texture = textureLoader.load('/textures/door/earth.jpg')  //Change texture here
 
 
 
@@ -39,8 +42,8 @@ const scene = new THREE.Scene()
 /**
  * Object
  */
-const geometry = new THREE.SphereGeometry(1, 32, 32)
-const material = new THREE.MeshBasicMaterial({ map: texture })
+const geometry = new THREE.SphereGeometry(1, 512, 512)
+const material = new THREE.MeshBasicMaterial({ map: texture, wireframe: true })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
@@ -107,6 +110,7 @@ const tick = () =>
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
+    mesh.rotation.y += 0.002
 }
 
 tick()
