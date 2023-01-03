@@ -42,7 +42,7 @@ const scene = new THREE.Scene()
 /**
  * Object
  */
-const geometry = new THREE.SphereGeometry(1, 512, 512)
+const geometry = new THREE.SphereGeometry(1, 256, 256)
 const material = new THREE.MeshBasicMaterial({ map: texture, wireframe: true })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
